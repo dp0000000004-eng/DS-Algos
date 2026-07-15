@@ -9,19 +9,23 @@ class Solution:
         for i in range(len(nums)):
             try:
                 if nums[i] + 1 == nums[i+1]:
-                    a = nums[i]
-                    b = nums[i+1]
-                    ans.append(f"{a}->{b}")
+                    if nums[i] == b:
+                        b = nums[i+1]
+                        ans.append(f"{a}->{b}")
+                    else:
+                        a = nums[i]
+                        b = nums[i+1]
+                        ans.append(f"{a}->{b}")
+                elif nums[i] + 1 != nums[i+1] and nums[i+1] + nums[i+2] != nums[i+2]:
+                    ans.append(f"{nums[i+1]}")
             except IndexError:
                 break
 
         return ans
 
-                
-
-
-nums = [0,1,2,4,5,7]
+             
+nums = [0,1,2,3,4,5,7,8]
 
 sol = Solution()
 ans = sol.summaryRanges(nums)
-print(ans)
+print(ans) ##################################   PENDING
