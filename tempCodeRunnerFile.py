@@ -1,2 +1,4 @@
-for i in range(len(nums)):
-    ma
+ums) // 3:
+    ans.append(cand1)
+elif count2 > len(nums) // 3:
+    ans.append(cand
