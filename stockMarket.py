@@ -1,4 +1,4 @@
-nums = [2, 4, 1]
+nums = [2, 4, 1, 5]
 
 min_number = float('inf')
 max_profit = 0
