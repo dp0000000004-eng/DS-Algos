@@ -1,52 +1,54 @@
 class Solution:
-    def nextPermutation(self, nums: List[int]) -> None:
+    def nextPermutation(self, nums: list[int]) -> None:
         """
         Do not return anything, modify nums in-place instead.
         """
+        if len(nums) > 1:
 
-
-        if len(nums) > 2:
+            break_point = 0
+            postion_of_bp = 0
 
             last = len(nums)-1
             p_last = len(nums)-2
 
             for _ in range(len(nums)):
-                if p_last == 0:
-                    comp = nums[p_last]
 
-
-                    if nums == sorted(nums, reverse=True):
-                        nums.sort()
-                        break
-
-                    nums.sort()
-
-                    l = None
-
-                    for num in nums:
-                        if num > comp:
-                            l = num
-                            break
-                        
-
-                    nums.remove(l)
-
-                    nums.insert(0, l)
-
-                    break
-
-
-                elif nums[last] > nums[p_last]:
-                    curr = nums[last]
-                    nums[last] =  nums[p_last]
-                    nums[p_last] = curr
+                if nums[p_last] < nums[last]:
+                    break_point = nums[last]
+                    postion_of_bp = last
                     break
                 else:
                     last -= 1
                     p_last -= 1
+            temp_array = []
 
+            swap = 0
+
+            for i in range(postion_of_bp, len(nums)):
+                temp_array.append(nums[i])
+
+            for num in sorted(temp_array):
+                
+                if num > nums[postion_of_bp-1]:
+                    swap = num
+                    break
+            nums[nums.index(swap)] = nums[postion_of_bp-1]
+            nums[postion_of_bp-1] = swap
+            
+
+            nums[postion_of_bp:] = sorted(nums[postion_of_bp:])
+
+            print(break_point, postion_of_bp)
+
+            print(nums)
         else:
-            if len(nums) == 1:
-                pass
-            else:
-                nums.reverse()
+            print(nums)
+            pass
+
+
+        
+
+nums = [5,4,7,5,3,2]
+
+sol = Solution()
+ans = sol.nextPermutation(nums)

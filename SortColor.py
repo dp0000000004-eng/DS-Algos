@@ -1,7 +1,7 @@
 class Solution:
     def sortColor(self, nums:list[int]):
 
-        nums = list(set(nums))
+        
 
         def looping():
             for i in range(len(nums)-1):
